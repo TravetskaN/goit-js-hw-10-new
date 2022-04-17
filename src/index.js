@@ -3,8 +3,8 @@ import './css/styles.css';
 var debounce = require('lodash.debounce');
 import { fetchCountries } from './fetchCountries';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import allCountries from '../templates/allCountries.hbs';
-import country from '../templates/country';
+import allCountries from '../src/templates/allCountries.hbs';
+import country from '../src/templates/country';
 
 const DEBOUNCE_DELAY = 300;
 const countryRequest = document.querySelector('#search-box');
@@ -13,7 +13,6 @@ const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
 function handlerInput(event) {
-  event.preventDefault();
   const countryName = countryRequest.value.trim();
   fetchCountries(countryName).then(renderMarkap).catch(showError);
 }
